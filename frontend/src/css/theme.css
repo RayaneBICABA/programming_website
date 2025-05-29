@@ -1,0 +1,38 @@
+:root {
+  /* Couleurs de base */
+  --color-bg: #101010;                    /* Alias de --color-background */
+  --color-background: #101010;
+  --color-text: white;
+
+  /* Couleurs d'accentuation */
+  --color-accent: #bdf400;
+  --color-accent-hover: #a6e000;
+  --color-btn-text: #101010;
+  --color-btn-shadow: rgba(189, 244, 0, 0.3);
+
+  /* États (succès, erreur) */
+  --color-error: #ef4444;
+  --color-success: #bdf400;
+
+  /* Champs de formulaire */
+  --color-input-bg: #1a1a1a;
+  --color-input-border: #333;
+  --color-placeholder: #666;
+
+  /* Checkbox */
+  --color-checkbox-border: #333;
+  --color-checkbox-checked-bg: #bdf400;
+  --color-checkbox-checked-text: #101010;
+
+  /* Progression */
+  --color-progress-bg: #333;
+  --color-progress-fill: #bdf400;
+
+  /* Hero pattern & stroke */
+  --color-stroke: #bdf400;
+  --color-stroke-opacity: 0.1;
+  --hero-pattern-stroke-opacity: 0.05;
+
+  /* En-tête */
+  --header-bg: rgba(16, 16, 16, 0.85);
+}
