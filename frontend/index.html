@@ -1,15 +1,431 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/styles.css" rel="stylesheet">
-    <title>Vite App</title>
+    <title>Programming Club</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="./src/css/theme.css" />
+    <link rel="stylesheet" href="./src/css/index.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <h1 class="text-3xl font-bold underline">    Hello world!  </h1>
-    <script type="module" src="/src/main.js"></script>
+   <!-- Header -->
+<header class="sticky-header py-4 px-6 border-b border-gray-800">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <span class="text-2xl font-bold">
+          <span class="accent-color">&lt;</span>Code<span class="accent-color">/&gt;</span> Club
+        </span>
+      </div>
+
+      <!-- Burger Button -->
+      <button id="burgerBtn" class="md:hidden text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6 items-center text-white">
+        <a href="#about" class="hover:text-bdf400 transition-colors">About</a>
+        <a href="#projects" class="hover:text-bdf400 transition-colors">Projects</a>
+        <a href="#ambitions" class="hover:text-bdf400 transition-colors">Ambitions</a>
+        <a href="./src/pages/login.html" class="btn-outline">Login</a>
+        <a href="./src/pages/register.html" class="btn-primary">Sign Up</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu (à mettre ici, dans .container pour que ça soit bien affiché) -->
+    <nav id="menuBar" class="hidden flex-col space-y-4 mt-4 md:hidden text-white bg-gray-900 p-4 rounded-lg">
+      <a href="#about" class="hover:text-bdf400 transition-colors">About</a>
+      <a href="#projects" class="hover:text-bdf400 transition-colors">Projects</a>
+      <a href="#ambitions" class="hover:text-bdf400 transition-colors">Ambitions</a>
+      <a href="./src/pages/login.html" class="btn-outline">Login</a>
+      <a href="./src/pages/register.html" class="btn-primary">Sign Up</a>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero-pattern py-20 md:py-32">
+      <div class="container mx-auto px-6 flex flex-col items-center">
+        <div
+          class="max-w-3xl text-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            A club. A passion.
+            <span class="accent-color">A future in code.</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-10">
+            Develop your skills, take on challenges, and join a community of
+            enthusiasts.
+          </p>
+          <a href="./src/pages/login.html" class="btn-primary text-lg"
+            >Join the club</a
+          >
+        </div>
+        <div class="mt-16" data-aos="fade-up" data-aos-delay="300">
+          <img
+            src="/api/placeholder/600/400"
+            alt="Code illustration"
+            class="rounded-lg shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-16 text-center"
+          data-aos="fade-up"
+        >
+          About the <span class="accent-color">club</span>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <h3 class="text-2xl font-bold mb-4">Who are we?</h3>
+            <p class="text-gray-300 mb-4">
+              We are a passionate club focused on web development, algorithms,
+              and challenges. Our mission: to progress together in the world of
+              programming.
+            </p>
+            <p class="text-gray-300 mb-6">
+              Founded in 2022, our club brings together people of all levels
+              united by a passion for code and a desire to learn continuously.
+            </p>
+            <div class="flex space-x-4">
+              <div class="bg-gray-800 p-4 rounded-lg text-center">
+                <span class="block text-3xl font-bold accent-color">50+</span>
+                <span class="text-gray-400">Members</span>
+              </div>
+              <div class="bg-gray-800 p-4 rounded-lg text-center">
+                <span class="block text-3xl font-bold accent-color">20+</span>
+                <span class="text-gray-400">Projects</span>
+              </div>
+              <div class="bg-gray-800 p-4 rounded-lg text-center">
+                <span class="block text-3xl font-bold accent-color">15+</span>
+                <span class="text-gray-400">Events</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2" data-aos="fade-left">
+            <img
+              src="/api/placeholder/500/400"
+              alt="Our team"
+              class="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-16 text-center"
+          data-aos="fade-up"
+        >
+          Our <span class="accent-color">achievements</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden project-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="/api/placeholder/400/250"
+              alt="Project 1"
+              class="w-full object-cover h-48"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Recipe Site</h3>
+              <p class="text-gray-400 mb-4">
+                Web application for sharing and discovering cooking recipes with
+                a rating system.
+              </p>
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color"
+                >HTML/CSS</span
+              >
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color ml-2"
+                >JavaScript</span
+              >
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden project-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="/api/placeholder/400/250"
+              alt="Project 2"
+              class="w-full object-cover h-48"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Snake Game in JS</h3>
+              <p class="text-gray-400 mb-4">
+                Recreation of the classic Snake game with modern features and
+                multiple difficulty levels.
+              </p>
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color"
+                >JavaScript</span
+              >
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color ml-2"
+                >Canvas</span
+              >
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden project-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <img
+              src="/api/placeholder/400/250"
+              alt="Project 3"
+              class="w-full object-cover h-48"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Weather Application</h3>
+              <p class="text-gray-400 mb-4">
+                Weather forecasting application using APIs to provide real-time
+                data.
+              </p>
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color"
+                >React</span
+              >
+              <span
+                class="inline-block px-3 py-1 bg-gray-800 text-xs rounded-full accent-color ml-2"
+                >API</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="https://github.com/RayaneBICABA" class="btn-outline"
+            >See all projects</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Ambitions Section -->
+    <section id="ambitions" class="py-20 bg-black">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-16 text-center"
+          data-aos="fade-up"
+        >
+          Our <span class="accent-color">ambitions</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div
+            class="bg-gray-900 p-8 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-4xl mb-6 accent-color">01</div>
+            <h3 class="text-xl font-bold mb-4">Organize local competitions</h3>
+            <p class="text-gray-400">
+              Set up hackathons and programming contests to stimulate creativity
+              and promote learning through practice.
+            </p>
+          </div>
+          <div
+            class="bg-gray-900 p-8 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-4xl mb-6 accent-color">02</div>
+            <h3 class="text-xl font-bold mb-4">Create educational AIs</h3>
+            <p class="text-gray-400">
+              Develop artificial intelligence projects to facilitate learning
+              programming and automate certain tasks.
+            </p>
+          </div>
+          <div
+            class="bg-gray-900 p-8 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-4xl mb-6 accent-color">03</div>
+            <h3 class="text-xl font-bold mb-4">
+              Help members become freelancers
+            </h3>
+            <p class="text-gray-400">
+              Provide resources, advice, and mentoring to support members who
+              want to start freelancing.
+            </p>
+          </div>
+          <div
+            class="bg-gray-900 p-8 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="text-4xl mb-6 accent-color">04</div>
+            <h3 class="text-xl font-bold mb-4">
+              Participate in national competitions
+            </h3>
+            <p class="text-gray-400">
+              Represent our school/city in national programming competitions to
+              showcase the talents of our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="accent-bg py-20">
+      <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-black">
+          Do you want to evolve, measure yourself against the best, and gain XP?
+        </h2>
+        <p class="text-black text-xl mb-10 max-w-3xl mx-auto">
+          Join our community of code enthusiasts and participate in exciting
+          projects that will help you progress.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <a
+            href="./src/pages/login.html"
+            class="bg-black text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-900 transition"
+            >Login</a
+          >
+          <a
+            href="./src/pages/register.html"
+            class="bg-white text-black font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-8 md:mb-0">
+            <span class="text-2xl font-bold"
+              ><span class="accent-color">&lt;</span>Code<span
+                class="accent-color"
+                >/&gt;</span
+              >
+              Club</span
+            >
+            <p class="text-gray-400 mt-4 max-w-sm">
+              A community of code enthusiasts who learn and grow together.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li>
+                  <a href="#" class="hover:text-bdf400 transition-colors"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="#about" class="hover:text-bdf400 transition-colors"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#projects"
+                    class="hover:text-bdf400 transition-colors"
+                    >Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#ambitions"
+                    class="hover:text-bdf400 transition-colors"
+                    >Ambitions</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Community</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li>
+                  <a href="#" class="hover:text-bdf400 transition-colors"
+                    >Discord</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-bdf400 transition-colors"
+                    >GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-bdf400 transition-colors"
+                    >YouTube</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Contact</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li>
+                  <a
+                    href="mailto:contact@codeclub.fr"
+                    class="hover:text-bdf400 transition-colors"
+                    >Email</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-bdf400 transition-colors"
+                    >Legal Notice</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500"
+        >
+          <p>&copy; 2025 Code Club. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./src/js/index.js"></script>
   </body>
 </html>
