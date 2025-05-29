@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Programming Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body class="hero-pattern">
+    <!-- Header -->
+    <header class="py-4 px-6 border-b border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+           <div class="flex items-center">
+                <span class="text-2xl font-bold"><span class="accent-color">&lt;</span>Code<span class="accent-color">/&gt;</span> Club</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-400">Already a member?</span>
+                <a href="./login.html" class="btn-outline">Log In</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <!-- Progress Indicator -->
+                <div class="mb-8" data-aos="fade-down">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm text-gray-400">Step <span id="currentStep">1</span> of 3</span>
+                        <span class="text-sm accent-color" id="progressText">Personal Information</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 33.33%"></div>
+                    </div>
+                </div>
+
+                <!-- Main Card -->
+                <div class="bg-gray-900 rounded-lg shadow-2xl overflow-hidden" data-aos="fade-up">
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <h1 class="text-3xl font-bold mb-2">Join the <span class="accent-color">community</span></h1>
+                            <p class="text-gray-400">Create your account and start your coding journey</p>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="registrationForm">
+                            <!-- Step 1: Personal Information -->
+                            <div id="step1" class="step-content">
+                                <h2 class="text-xl font-semibold mb-6">Personal Information</h2>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Your first name" required>
+                                        <div class="form-error" id="firstNameError"></div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Your last name" required>
+                                        <div class="form-error" id="lastNameError"></div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                                    <div class="form-error" id="emailError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 123 456 7890">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" for="birthDate">Date of Birth</label>
+                                        <input type="date" id="birthDate" name="birthDate" class="form-input">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2" for="city">City</label>
+                                        <input type="text" id="city" name="city" class="form-input" placeholder="Your city">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Programming Profile -->
+                            <div id="step2" class="step-content hidden">
+                                <h2 class="text-xl font-semibold mb-6">Programming Profile</h2>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="level">Programming Level *</label>
+                                    <select id="level" name="level" class="form-select" required>
+                                        <option value="">Select your level</option>
+                                        <option value="beginner">Beginner - I'm new to programming</option>
+                                        <option value="junior">Junior - I have some basics</option>
+                                        <option value="intermediate">Intermediate - I know several languages</option>
+                                        <option value="senior">Experienced - I've been developing for years</option>
+                                        <option value="expert">Expert - I'm an established developer</option>
+                                    </select>
+                                    <div class="form-error" id="levelError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2">Programming Languages You Know</label>
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="javascript" class="checkbox-custom">
+                                            <span>JavaScript</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="python" class="checkbox-custom">
+                                            <span>Python</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="java" class="checkbox-custom">
+                                            <span>Java</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="cpp" class="checkbox-custom">
+                                            <span>C++</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="csharp" class="checkbox-custom">
+                                            <span>C#</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="languages" value="php" class="checkbox-custom">
+                                            <span>PHP</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="interests">Areas of Interest</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="web" class="checkbox-custom">
+                                            <span>Web Development</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="mobile" class="checkbox-custom">
+                                            <span>Mobile Development</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="ai" class="checkbox-custom">
+                                            <span>Artificial Intelligence</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="data" class="checkbox-custom">
+                                            <span>Data Science</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="security" class="checkbox-custom">
+                                            <span>Cybersecurity</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="checkbox" name="interests" value="games" class="checkbox-custom">
+                                            <span>Game Development</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="github">GitHub Profile (optional)</label>
+                                    <input type="url" id="github" name="github" class="form-input" placeholder="https://github.com/your-username">
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Account Security -->
+                            <div id="step3" class="step-content hidden">
+                                <h2 class="text-xl font-semibold mb-6">Account Security</h2>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="username">Username *</label>
+                                    <input type="text" id="username" name="username" class="form-input" placeholder="your_username" required>
+                                    <p class="text-xs text-gray-400 mt-1">This name will be visible to other members</p>
+                                    <div class="form-error" id="usernameError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="password">Password *</label>
+                                    <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required>
+                                    <div class="mt-2">
+                                        <div class="text-xs text-gray-400 mb-1">Password Strength:</div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="passwordStrength" style="width: 0%"></div>
+                                        </div>
+                                        <div class="text-xs text-gray-400 mt-1" id="passwordStrengthText">Very Weak</div>
+                                    </div>
+                                    <div class="form-error" id="passwordError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2" for="confirmPassword">Confirm Password *</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="••••••••" required>
+                                    <div class="form-error" id="confirmPasswordError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="flex items-start space-x-3 cursor-pointer">
+                                        <input type="checkbox" id="terms" name="terms" class="checkbox-custom mt-1" required>
+                                        <span class="text-sm text-gray-300">
+                                            I accept the <a href="#" class="accent-color hover:underline">terms of use</a> 
+                                            and the <a href="#" class="accent-color hover:underline">privacy policy</a> *
+                                        </span>
+                                    </label>
+                                    <div class="form-error" id="termsError"></div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="flex items-start space-x-3 cursor-pointer">
+                                        <input type="checkbox" id="newsletter" name="newsletter" class="checkbox-custom mt-1">
+                                        <span class="text-sm text-gray-300">
+                                            I want to receive newsletters and updates about club events
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="flex justify-between mt-8">
+                                <button type="button" id="prevBtn" class="btn-outline hidden">Previous</button>
+                                <div class="flex-1"></div>
+                                <button type="button" id="nextBtn" class="btn-primary max-w-xs">Next</button>
+                                <button type="submit" id="submitBtn" class="btn-primary max-w-xs hidden">Create Account</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="text-center mt-8 text-gray-400" data-aos="fade-up" data-aos-delay="200">
+                    <p>By creating an account, you join a community of <span class="accent-color font-semibold">50+ passionate developers</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>
