@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/css/tailwind.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         body {
@@ -15,6 +16,10 @@
             background-color: #101010;
             color: white;
             overflow-x: hidden;
+        }
+
+        .menu-button{
+            display: none;
         }
 
         .accent-color {
@@ -142,6 +147,52 @@
             width: 24px;
             height: 24px;
         }
+
+
+        @media (max-width: 768px) {
+            .menu-button{
+                display: block;
+            }
+
+            .sidebar{
+                display: none;
+            }
+
+            .main-content{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                 margin-left: -0.40vw;
+            }
+
+            .white-param-icon{
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu-button {
+                display: block;
+            }
+
+             .sidebar{
+                display: none;
+            }
+
+            .main-content{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                 margin-left: -0.40vw;
+            }
+
+            .white-param-icon{
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -150,6 +201,14 @@
     <canvas class="matrix-rain" id="matrixCanvas"></canvas>
 
     <div class="flex min-h-screen">
+        <div class="menu-button flex absolute  right-0 z-10 pr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-list text-white w-8 h-8" fill="currentColor"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+
+        </div>
         <!-- Sidebar -->
         <div class="sidebar w-64 p-6 fixed h-full z-30">
             <div class="mb-8">
@@ -213,12 +272,12 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 ml-64 p-8">
+        <div class="main-content flex-1 ml-64 p-8">
             <!-- Header -->
             <div class="flex justify-between items-center mb-8">
                 <div>
                     <h1 class="text-3xl font-bold mb-2">Welcome back, <span class="accent-color">Ryko</span>! 👋</h1>
-                    <p class="text-gray-400">Place wher</p>
+                    <p class="text-gray-400">The place where the only myth is limitation</p>
                 </div>
                 <div class="flex items-center space-x-4">
                     <div class="relative">
